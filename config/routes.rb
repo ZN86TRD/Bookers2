@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   #resourcesメソッド onlyオプション
   resources :books, only: [:new, :create, :index, :show, :destroy]
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:show, :edit, :update]
 
   devise_for :users
 
