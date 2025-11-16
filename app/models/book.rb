@@ -3,7 +3,7 @@ class Book < ApplicationRecord
     has_one_attached :image
 
     #アソシエーション
-    blongs_to :user
+    belongs_to :user
 
     #get_imageメソッド
     def get_image

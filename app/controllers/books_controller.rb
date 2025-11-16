@@ -5,9 +5,9 @@ class BooksController < ApplicationController
   end
 
   #投稿データの保存
-  def Create
+  def create
     @book = Book.new(book_params)
-    @book.user_id = current_uer.id
+    @book.user_id = current_user.id
     @book.save
     redirect_to books_path
   end
@@ -17,6 +17,13 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book = Book.find(params[:id])
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.dastroy
+    redirect_to books_path
   end
 
   #投稿データのストロングパラメーター
