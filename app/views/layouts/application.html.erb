@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <script src="https://kit.fontawesome.com/8e86ac478f.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-
   <header>
+  <nav>
+
     <% if user_signed_in? %>
     <!--trueならここから-->
   <li>
@@ -35,17 +36,36 @@
   <!--ここまで表示-->
   <% else %>
   <!--falseならここから-->
-    <li>
-      <%= link_to "Sign up", new_user_registration_path %>
-    </li>
 
-    <li>
-      <%= link_to "Log in", new_user_session_path %>
-    </li>
+  <li>
+    <%= link_to "Home", root_path %>
+  </li>
+
+  <li>
+    <%= link_to "About", about_path %>
+  </li>
+
+  <li>
+    <%= link_to "Sign up", new_user_registration_path %>
+  </li>
+
+  <li>
+    <%= link_to "Log in", new_user_session_path %>
+  </li>
     <!--ここまで表示-->
   <% end %>
   </header>
 
     <%= yield %>
+
+    <footer>
+  <div class='container mt-5'>
+  	<div class='row'>
+    	<div class='mx-auto'>
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+</footer>
   </body>
 </html>
