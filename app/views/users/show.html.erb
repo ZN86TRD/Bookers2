@@ -1,34 +1,15 @@
-<!--ユーザーの詳細-->
-
-<h1>User info</h1>
-
-<div>
-    <!--get_profile_imageメソッド-->
-    <%= image_tag @user.get_profile_image(100,100) %>
-
-    <h3>name<%= @user.name %></h3>
-
-    <h3>introduction<%= @user.introduction %></h3>
-
-    <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %>
-    <% end %>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>User info</h2>
+      <%= render 'userinfo', user: @user %>
+      <h2 class="mt-3">New book</h2>
+      <%= render 'books/newbook', book: @book %>
+    </div>
+    <div class='col-md-8 offset-md-1'>
+      <h2>Books</h2>
+      <%= render 'books/books',books: @books %>
+    </div>
+  </div>
 </div>
 
-<!--ユーザーの投稿一覧-->
-
-<% @books.each do |book| %>
-<div>
-
-    <p>投稿ユーザー画像 :<%= image_tag book.user.get_profile_image(100,100) %></p>
-
-    <p>ユーザーネーム :<%= book.user.name %></p>
-
-    <p>Title :<%= book.title %></p>
-
-    <p>Opinion :<%= book.body %></p>
-
-    
-
-</div>
-<% end %>
