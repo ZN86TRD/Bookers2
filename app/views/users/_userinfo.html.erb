@@ -10,10 +10,15 @@
 
 <h3>introduction<%= user.introduction %></h3>
 
-<% if user.id == current_user.id %>
-<p><%= link_to "プロフィール編集", edit_user_path(user) %>
-<% else %>
-<%= link_to "プロフィール編集", user_path(current_user) %>
-<% end %>
+  <% if user.id == current_user.id %>
+    <p><%= link_to edit_user_path(user), class: "btn btn-outline-secondary" do %> 
+        <i class="fa-solid fa-user-cog"></i>
+      <% end %>
+    </p>
+  <% else %>
+    <p><%= link_to user_path(current_user) do %>
+        <i class="fa-solid fa-user-cog"></i>
+      <% end %>
+    </p>
+  <% end %>
 </div>
-</p>
