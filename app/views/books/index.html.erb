@@ -1,27 +1,30 @@
-
-<div class='container'>
-  <div class='row'>
-    <div class='col-md-3'>
-
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-3">
+      
       <h1>User info</h1>
       <%= render 'users/userinfo', user: current_user %>
-
+      
+      <hr>
+      
       <h1>New book</h1>
       <%= render 'newbook', book: @book %>
+      
     </div>
 
-<!--投稿一覧-->
-<h1>Books</h1>
-<% @books.each do |book| %>
-
-    <div>
-        <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-
-        <!--詳細画面リンク-->
-        <p>Title<%= link_to book_path(book.id) do %>
-          <%= book.title %></p>
-        <% end %>
-        <p>Opinion<%= book.body %></p>
+    <div class="col-md-9">
+      
+      <h1>Books</h1>
+      
+      <% @books.each do |book| %>
+        <div class="book-item">
+          <p><%= image_tag book.user.get_profile_image(100, 100) %></p>
+          <p>Title: <%= link_to book.title, book_path(book.id) %></p>
+          <p>Opinion: <%= book.body %></p>
+        </div>
+      <% end %>
+      
     </div>
-
-<% end %>
+  </div>
+</div>

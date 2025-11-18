@@ -6,9 +6,9 @@
 <!--get_profile_imageメソッド-->
 <%= image_tag user.get_profile_image(100,100) %>
 
-<h3>name---<%= user.name %></h3>
+<h3>name<%= user.name %></h3>
 
-<h3>introduction---<%= user.introduction %></h3>
+<h3>introduction<%= user.introduction %></h3>
 
 <% if user.id == current_user.id %>
 <p><%= link_to "プロフィール編集", edit_user_path(user) %>
