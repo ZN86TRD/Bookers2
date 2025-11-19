@@ -13,17 +13,10 @@
       
     </div>
 
-    <div class="col-md-9">
+    <div class='col-md-8 offset-md-1'>
       
       <h1>Books</h1>
-      
-      <% @books.each do |book| %>
-        <div class="book-item">
-          <p><%= image_tag book.user.get_profile_image(100, 100) %></p>
-          <p>Title: <%= link_to book.title, book_path(book.id) %></p>
-          <p>Opinion: <%= book.body %></p>
-        </div>
-      <% end %>
+      <%= render 'books', bookss: @books %>
       
     </div>
   </div>

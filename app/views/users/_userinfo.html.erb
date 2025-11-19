@@ -16,7 +16,7 @@
       <% end %>
     </p>
   <% else %>
-    <p><%= link_to user_path(current_user) do %>
+    <p><%= link_to user_path(current_user), class: "btn btn-outline-secondary" do %>
         <i class="fa-solid fa-user-cog"></i>
       <% end %>
     </p>

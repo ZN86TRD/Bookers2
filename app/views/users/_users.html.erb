@@ -1,15 +1,27 @@
 
 <!--ユーザー一覧-->
+<table class='table'>
+<thead>
+<tr>
+<th>image</th>
+<th>name</th>
+<th colspan="1"></th>
+</tr>
+</thead>
+
+<tbody>
 <% users.each do |user| %>
 
-<div>
+<tr>
+
 <!--投稿ユーザー画像-->
-<p>image <%= image_tag user.get_profile_image(100,100) %></p>
+<td><%= image_tag user.get_profile_image(100,100) %></td>
 
-<p>name<%= user.name %></p>
+<td><%= user.name %></td>
 
-<p><%= link_to user_path(user.id) do %>Show</p>
-
+<td><%= link_to user_path(user.id) do %>Show</td>
+</tr>
 <% end %>
-
 <% end %>
+</tbody>
+</table>
